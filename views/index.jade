@@ -1,0 +1,81 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title Calculator
+    link(rel='stylesheet', type='text/css', href='style.css')
+    script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1', crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')
+  body
+    form(action='/', method='POST', name='cal', id='cal')
+      .calculator.card
+        input#demo.calculator-screen.z-depth-1(type='text' name='screen1', value = answer)
+        input#collect.calculator-screen2.z-depth-1(type='text', name='screen2', value = count)
+        .calculator-keys
+          button.operator.btn.btn-info(type='button', value='+', onclick='myFunction(this)')
+            | +
+          button.operator.btn.btn-info(type='button', value='-', onclick='myFunction(this)')
+            | -
+          button.operator.btn.btn-info(type='button', value='*', onclick='myFunction(this)')
+            | ×
+          button.operator.btn.btn-info(type='button', value='/', onclick='myFunction(this)')
+            | ÷
+          button#abc.btn.btn-light.waves-effect(type='button', value='7', onclick='myFunction(this)')
+            | 7
+          button.btn.btn-light.waves-effect(type='button', value='8', onclick='myFunction(this)' )
+            | 8
+          button.btn.btn-light.waves-effect(type='button', value='9', onclick='myFunction(this)')
+            | 9
+          button.btn.btn-light.waves-effect(type='button', value='4', onclick='myFunction(this)')
+            | 4
+          button.btn.btn-light.waves-effect(type='button', value='5', onclick='myFunction(this)')
+            | 5
+          button.btn.btn-light.waves-effect(type='button', value='6', onclick='myFunction(this)')
+            | 6
+          button.btn.btn-light.waves-effect(type='button', value='1', onclick='myFunction(this)')
+            | 1
+          button.btn.btn-light.waves-effect(type='button', value='2', onclick='myFunction(this)')
+            | 2
+          button.btn.btn-light.waves-effect(type='button', value='3', onclick='myFunction(this)')
+            | 3
+          button.btn.btn-light.waves-effect(type='button', value='0', onclick='myFunction(this)')
+            | 0
+          button.decimal.function.btn.btn-secondary(type='button', value='.', onclick='myFunction(this)')
+            | .
+          button.all-clear.function.btn.btn-danger.btn-sm(type='submit', value='Reset')
+            | AC
+          button.equal-sign.operator.btn.btn-default(type='submit', value='=')
+            | =
+          button.all-clear.function.btn.btn-danger.btn-sm.previous-transaction(type='button', value='all-clear', onclick="prevFunction()")
+            | PREV
+          button.all-clear.function.btn.btn-danger.btn-sm.next-transaction(type='button', value='all-clear', onclick="nextFunction()")
+            | NEXT
+    script.
+      var collectionArray = !{JSON.stringify(collection)}
+      var count = collectionArray.length
+      var setValue = 0
+      
+      function myFunction(button) {
+        var x = button.value
+        document.getElementById("demo").value += x;
+      }
+      function clear() {
+        document.getElementById("cal").reset();
+      }
+      function prevFunction(){
+          console.log(count);
+          console.log(collectionArray)
+          document.getElementById("demo").value=collectionArray[count-1];
+          if (count>0 && collectionArray[count-1]!=null)
+          count = count - 1;    
+      }
+      function nextFunction(){
+          console.log(count);
+          console.log(collectionArray)
+          document.getElementById("demo").value=collectionArray[count+1]
+          if (count<4 && typeof(collectionArray[count+1])!==undefined)
+          count = count + 1; 
+      }

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <form action="/" method="POST" name="cal" id="cal">
+      <div class="calculator card">
+        <input
+          type="text"
+          class="calculator-screen z-depth-1"
+          id="demo"
+          name="screen1"
+        />
+        <input
+          type="text"
+          id="collect"
+          name="screen2"
+          class="calculator-screen2 z-depth-1"
+        />
+
+        <div class="calculator-keys">
+          <button
+            type="button"
+            class="operator btn btn-info"
+            value="+"
+            onclick="myFunction(this)"
+          >
+            +
+          </button>
+          <button
+            type="button"
+            class="operator btn btn-info"
+            value="-"
+            onclick="myFunction(this)"
+          >
+            -
+          </button>
+          <button
+            type="button"
+            class="operator btn btn-info"
+            value="*"
+            onclick="myFunction(this)"
+          >
+            &times;
+          </button>
+          <button
+            type="button"
+            class="operator btn btn-info"
+            value="/"
+            onclick="myFunction(this)"
+          >
+            &divide;
+          </button>
+
+          <button
+            type="button"
+            value="7"
+            class="btn btn-light waves-effect"
+            onclick="myFunction(this)"
+          >
+            7
+          </button>
+          <button
+            type="button"
+            value="8"
+            class="btn btn-light waves-effect"
+            onclick="myFunction(this)"
+          >
+            8
+          </button>
+          <button
+            type="button"
+            value="9"
+            class="btn btn-light waves-effect"
+            onclick="myFunction(this)"
+          >
+            9
+          </button>
+
+          <button
+            type="button"
+            value="4"
+            class="btn btn-light waves-effect"
+            onclick="myFunction(this)"
+          >
+            4
+          </button>
+          <button
+            type="button"
+            value="5"
+            class="btn btn-light waves-effect"
+            onclick="myFunction(this)"
+          >
+            5
+          </button>
+          <button
+            type="button"
+            value="6"
+            class="btn btn-light waves-effect"
+            onclick="myFunction(this)"
+          >
+            6
+          </button>
+
+          <button
+            type="button"
+            value="1"
+            class="btn btn-light waves-effect"
+            onclick="myFunction(this)"
+          >
+            1
+          </button>
+          <button
+            type="button"
+            value="2"
+            class="btn btn-light waves-effect"
+            onclick="myFunction(this)"
+          >
+            2
+          </button>
+          <button
+            type="button"
+            value="3"
+            class="btn btn-light waves-effect"
+            onclick="myFunction(this)"
+          >
+            3
+          </button>
+
+          <button
+            type="button"
+            value="0"
+            class="btn btn-light waves-effect"
+            onclick="myFunction(this)"
+          >
+            0
+          </button>
+          <button
+            type="button"
+            class="decimal function btn btn-secondary"
+            value="."
+          >
+            .
+          </button>
+          <button
+            type="reset"
+            class="all-clear function btn btn-danger btn-sm"
+            value="Reset"
+          >
+            AC
+          </button>
+
+          <button
+            type="submit"
+            class="equal-sign operator btn btn-default"
+            value="="
+          >
+            =
+          </button>
+          <button
+            type="button"
+            class="all-clear function btn btn-danger btn-sm previous-transaction"
+            value="all-clear"
+            onclick="prevFunction()"
+          >
+            PREV
+          </button>
+          <button
+            type="button"
+            class="all-clear function btn btn-danger btn-sm next-transaction"
+            value="all-clear"
+            onclick="nextFunction()"
+          >
+            NEXT
+          </button>
+        </div>
+      </div>
+    </form>
+  </body>
+  <script>
+    function myFunction(button) {
+      var x = button.value;
+      document.getElementById("demo").value += x;
+    }
+    function prevFunction() {
+      document.getElementById("demo").value = collection[count - 1];
+    }
+    function nextFunction() {
+      document.getElementById("demo").value = collection[count + 1];
+    }
+  </script>
+</html>
